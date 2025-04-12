@@ -12,8 +12,10 @@ import Icon from 'react-native-vector-icons/FontAwesome'; // Facebook
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'; // Phone
 import AntDesign from 'react-native-vector-icons/AntDesign'; // Google
 import Entypo from 'react-native-vector-icons/Entypo'; // Email
+import { useNavigation } from '@react-navigation/native';
 
 const LoginScreen = () => {
+   let navigation=useNavigation()
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Logo and Heading */}
@@ -29,7 +31,7 @@ const LoginScreen = () => {
 
       {/* Buttons */}
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('LoginWithEmail')}>
           <Entypo name="email" size={24} color="#0F9D58" />
           <Text style={styles.buttonText}>Continue with Email</Text>
         </TouchableOpacity>
